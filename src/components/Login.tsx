@@ -19,6 +19,7 @@ const Login: React.FC = () => {
       console.log(response);
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.name));
         toast.success('Login successful!');
         setTimeout(() => navigate('/home'), 2000); // Redirect to the homepage
       } else {
